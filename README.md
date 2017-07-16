@@ -10,7 +10,7 @@ WPKit Auth comes with three types of Auth Middleware that integrate directly wit
 * Form Authentication: auth.form
 * Token Authentication: auth.token
 
-**This will be changing soon, Form and Token Middleware will be removed an replace with a Wordpress UserProvider Guard so that Illuminate Authenticate and TokenGuard can be used**
+**This will be changing soon, Form and Token Middleware will be removed an replace with a Wordpress UserProvider Guard so that Illuminate Authenticate and TokenGuard can be used.**
 
 ## Installation
 
