@@ -1,0 +1,33 @@
+{
+	"name": "wp-kit/auth",
+	"description": "A Themosis PHP Component that handles Authentication",
+	"keywords": ["wordpress", "themosis", "oop", "authentication"],
+	"homepage" : "https://github.com/wp-kit/auth",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Creative Little Dots",
+			"email" : "tech@creativelittledots.co.uk",
+			"homepage" : "https://creativelittledots.co.uk/",
+			"role" : "Developers"
+		}
+	],
+	"require": {
+        "php": ">=5.6.4",
+        "illuminate/auth": "5.*",
+        "wp-kit/hashing": "dev-master"
+    },
+	"type": "library",
+	"autoload": {
+        "psr-4": {
+            "WPKit\\Auth\\": "src/Auth" 
+        }
+    },
+    "config": {
+		"preferred-install": "dist"
+	},
+	"repositories": [
+	],
+	"scripts": {
+	}
+}
