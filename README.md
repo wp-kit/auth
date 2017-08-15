@@ -20,7 +20,9 @@ If you're using Themosis, install via composer in the Themosis route folder, oth
 composer require "wp-kit/auth"
 ```
 
-## Registering Service Provider
+## Setup
+
+### Add Service Provider
 
 **Within Themosis Theme**
 
@@ -37,7 +39,7 @@ return [
 ];
 ```
 
-## Config
+### Add Config File
 
 > **Note:** This will be changing to a traditional config file similar to that found in Laravel once the UserProvider Guard has been built
 
@@ -55,8 +57,7 @@ For more information, please visit [wp-kit/vendor-publish](https://github.com/wp
 
 Alternatively, you can place the [config file(s)](config) in your ```theme/resources/config``` directory manually.
 
-
-## Using Middleware
+## Usage
 
 You can activate middleware on the route group or route itself:
 
