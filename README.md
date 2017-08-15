@@ -37,47 +37,24 @@ return [
 ];
 ```
 
-## Add Config File
+## Config
 
 > **Note:** This will be changing to a traditional config file similar to that found in Laravel once the UserProvider Guard has been built
 
-```php
-//inside themosis-theme/resources/config/auth.config.php
+The recommended method of installing config files for WPKit Components is via ```wp-kit/vendor-publish``` command.
 
-return [
+First, [install WP CLI](http://wp-cli.org/), and then install the package via:
 
-    /*
-    |--------------------------------------------------------------------------
-    | Form Auth Settings
-    |--------------------------------------------------------------------------
-    |
-    |
-    */
+```wp package install wp-kit/vendor-publish```
 
-    'form' => [
-	    'allow' => [],
-	    'disallow' => [],
-	    'logout_redirect' => '/wp-login.php',
-	    'login_redirect' => home_url(),
-	    'mask_wp_login' => false
-    ],
+Once installed you can run:
 
-    /*
-    |--------------------------------------------------------------------------
-    | Token Auth Settings
-    |--------------------------------------------------------------------------
-    |
-    |
-    */
+```wp kit vendor:publish```
 
-    'token' => [
-	    'username' => 'login',
-	    'limit' => 5,
-	    'allow' => []
-    ]
+For more information, please visit [wp-kit/vendor-publish](https://github.com/wp-kit/vendor-publish).
 
-];
-```
+Alternatively, you can place the [config file(s)](config) in your ```theme/resources/config``` directory manually.
+
 
 ## Using Middleware
 
