@@ -66,6 +66,8 @@ If using BasicAuth middleware, make sure you add the following line to your ```.
 
 You can activate middleware on the route group or route itself:
 
+### Middleware on Group
+
 ```php
 // inside themosis-theme/resources/providers/RoutingService.php
 
@@ -96,6 +98,8 @@ class RoutingService extends ServiceProvider
 }
 ```
 
+### Middleware on Route
+
 ```php
 // inside themosis-theme/resources/routes.php
 
@@ -106,6 +110,10 @@ Route::get('home', function(Input $request)
     
 })->middleware('auth.token');
 ```
+
+### Config
+
+Please install and study the default [config file](config/auth.config.php) as described above to learn how to use this component.
 
 ## Requirements
 
