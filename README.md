@@ -24,8 +24,6 @@ composer require "wp-kit/auth"
 
 ### Add Service Provider
 
-**Within Themosis Theme**
-
 Just register the service provider and facade in the providers config and theme config:
 
 ```php
@@ -34,6 +32,7 @@ Just register the service provider and facade in the providers config and theme 
 return [
     //
     WPKit\Hashing\HashingServiceProvider::class, // we need this too
+    WPKit\Cookie\CookieServiceProvider::class, // we need this too
     WPKit\Auth\AuthServiceProvider::class,
     //
 ];
@@ -57,6 +56,12 @@ For more information, please visit [wp-kit/vendor-publish](https://github.com/wp
 
 Alternatively, you can place the [config file(s)](config) in your ```theme/resources/config``` directory manually.
 
+### Allowing Headers
+
+If using BasicAuth middleware, make sure you add the following line to your ```.htacess``` file to allow Authorization headers:
+
+```RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]```
+
 ## Usage
 
 You can activate middleware on the route group or route itself:
@@ -77,9 +82,12 @@ class RoutingService extends ServiceProvider
     public function register()
     {
         Route::group([
-	        'middleware' => 'auth.basic',
-	        //'middleware' => 'auth.form',
-	        //'middleware' => 'auth.token',
+	        'middleware' => [
+		        'web.session',
+	        	'auth.basic',
+				//'auth.form',
+				//'auth.token'
+			],
             'namespace' => 'Theme\Controllers'
         ], function () {
             require themosis_path('theme.resources').'routes.php';

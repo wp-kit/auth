@@ -3,43 +3,25 @@
     namespace WPKit\Auth\Middleware;
     
     use Closure;
-	use Illuminate\Support\Facades\Route;
-	use Illuminate\Container\Container;
-	use Illuminate\Http\Request;
+	use Themosis\Foundation\Request;
+	use Illuminate\Http\JsonResponse;
+	use Themosis\Facades\Route;
+	use Themosis\Facades\Input;
 
 	class TokenAuth {
-		
-		/**
-	     * The guard factory instance.
-	     *
-	     * @var \Illuminate\Contracts\Auth\Factory
-	     */
-	    protected $app;
 	    
-	    protected $settings = array();
-	
-	    /**
-	     * Create a new middleware instance.
-	     *
-	     * @param  \Illuminate\Contracts\Auth\Factory  $auth
-	     * @return void
-	     */
-	    public function __construct(Container $app)
-	    {
-		    $this->app = $app;
-	        $this->mergeSettings($this->app['config.factory']->get('auth.token'));
-	    }
+	    protected static $settings = array();
 	    
 	    public static function routes() {
 		    
-		    Route::post( '/token', [ $this, 'issueToken' ] );
+		    Route::post( '/token', static::class . '@issueToken' );
 		    
 	    }
 	    
 	    /**
 	     * Handle an incoming request.
 	     *
-	     * @param  \Illuminate\Http\Request  $request
+	     * @param  \Themosis\Facades\Input  $request
 	     * @param  \Closure  $next
 	     * @param  string|null  $guard
 	     * @return mixed
@@ -49,9 +31,11 @@
 			
 			nocache_headers();
 			
+			$settings = static::mergeSettings(app('config.factory')->get('auth.token'));
+			
 			if( $is_allowed = $this->isAllowed() ) {
 				
-				return true;
+				return $next($request);
 				
 			}
 	
@@ -67,9 +51,7 @@
 			
 			if( ! $token ) {
 				
-				status_header(401);
-				
-				wp_send_json_error( 'no access token provided' );
+				return new JsonResponse(['success' => false, 'data' => 'No access token provided.'], 401);
 				
 			}
 			
@@ -85,52 +67,42 @@
 				
 				wp_set_current_user ( $user_id );
 				
-				$next($request);
+				return $next($request);
 				
 			} else {
 				
-				status_header(401);
-				
-				wp_send_json_error( 'invalid access token provided' );
+				return new JsonResponse(['success' => false, 'data' => 'Invalid access token provided.'], 401);
 				
 			}
 	        
 	    }
     	
-    	public function mergeSettings( $settings = array() ) {
+    	public static function mergeSettings( $settings = array() ) {
 	    	
-	    	$this->settings = array_merge(array(
+	    	return static::$settings = array_merge_recursive(array(
     			'username' => 'login',
-    			'response' => array($this, 'respondToAccessTokenRequest'),
+    			'response' => array(static::class, 'respondToAccessTokenRequest'),
     			'limit' => 5,
-    			'allow' => array()
+    			'allow' => array(
+	    			'/token'
+    			)
 			), $settings);
-			
-			$settings['allow'][] = '/token';
-			
-			return $this;
 
 		}
 		
 		public function isAllowed() {
 			
-			extract($this->settings);
-	    	
-	    	if( ! $mask_wp_login && is_wp_login() ) {
-		    	
-		    	return true;
-		    	
-	    	}
-	    	
-	    	$is_allowed = is_user_logged_in() || is_page( $this->settings['logout_redirect'] ) || is_route( $this->settings['logout_redirect'] );
+			$settings = static::$settings;
+
+	    	$is_allowed = is_user_logged_in();
 			
 			if( ! $is_allowed ) {
 				
-				if( ! empty( $this->settings['disallow'] ) ) {
+				if( ! empty( $settings['disallow'] ) ) {
 					
 					$is_allowed = true;
 					
-					foreach($this->settings['disallow'] as $page) {
+					foreach($settings['disallow'] as $page) {
 	    			
 		    			$is_allowed = is_page( $page ) || is_route( $page ) ? false : $is_allowed;
 		    			
@@ -144,7 +116,7 @@
 				
 				} else {
 					
-					foreach($this->settings['allow'] as $page) {
+					foreach($settings['allow'] as $page) {
 	    			
 		    			$is_allowed = is_page( $page ) || is_route( $page ) ? true : $is_allowed;
 		    			
@@ -164,27 +136,25 @@
 	    	
     	}
     	
-    	public function issueToken(Request $request) {
+    	public static function issueToken(Input $request) {
+	    	
+	    	$settings = static::mergeSettings(app('config.factory')->get('auth.token'));
 	    	
 	    	if( ! $username = $request->get('username') ) {
-						
-				status_header(401);
-				
-				wp_send_json_error( 'Missing parameter: username' );
+		    	
+		    	return new JsonResponse(['success' => false, 'data' => 'Missing parameter: username'], 401);
 				
 			}
 			
 			if( ! $password = $request->get('password') ) {
 				
-				status_header(401);
-				
-				wp_send_json_error( 'Missing parameter: password' );
+				return new JsonResponse(['success' => false, 'data' => 'Missing parameter: password'], 401);
 				
 			}
 			
-			if( is_array( $this->settings['username'] ) ) {
+			if( is_array( $settings['username'] ) ) {
 					
-				foreach($this->settings['username'] as $property) {
+				foreach($settings['username'] as $property) {
 					
 					if( $user = get_user_by( $property, $username ) ) {
 						
@@ -196,7 +166,7 @@
 				
 			} else {
 			
-				$user = get_user_by( $this->settings['username'], $username );
+				$user = get_user_by( $settings['username'], $username );
 				
 			}
 			
@@ -216,21 +186,17 @@
 				
 				add_user_meta( $user->ID, 'access_token', $token );
 				
-				status_header(200);
-			
-				wp_send_json_success( $this->app->call( $this->settings['response'], $token, $user ) );
+				return new JsonResponse(['success' => false, 'data' => call_user_func( $settings['response'], $token, $user )], 200);
 				
 			} else {
 				
-				status_header(401);
-				
-				wp_send_json_error( $is_authenticated->get_error_message() );
+				return new JsonResponse(['success' => false, 'data' => $is_authenticated->get_error_message()], 401);
 				
 			}
 			
 		}
 		
-		public function respondToAccessTokenRequest( $token, \WP_User $user ) {
+		public static function respondToAccessTokenRequest( $token, \WP_User $user ) {
 			
 			return array(
 				'access_token' => $token
