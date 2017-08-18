@@ -16,16 +16,14 @@
         "php": ">=5.6.4",
         "illuminate/auth": "5.*",
         "wp-kit/hashing": "dev-master",
-        "wp-kit/cookie": "dev-master"
+        "wp-kit/cookie": "dev-master",
+	"wp-kit/utils": "dev-master"
     },
 	"type": "library",
 	"autoload": {
         "psr-4": {
             "WPKit\\Auth\\": "src/Auth" 
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "config": {
 		"preferred-install": "dist"
