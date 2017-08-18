@@ -14,7 +14,7 @@ Currently there are no authentication middleware built into ```Themosis``` howev
 
 ## Installation
 
-If you're using ```Themosis```, install via ```Composer``` in the root of your ```Themosis``` installation, otherwise install in your ```Composer``` driven theme folder:
+Install via ```Composer``` in the root of your ```Themosis``` installation:
 
 ```php
 composer require "wp-kit/auth"
