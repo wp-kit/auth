@@ -1,10 +1,10 @@
-# WPKit Auth
+# wp-kit/auth
 
-This is a Themosis PHP Component that handles Authentication.
+This is a Themosis PHP Component that handles authentication.
 
-Currently there are no Authentication Middleware's built into Themosis however with Illuminate Routing built into Themosis, we are able to run Middleware on Routes and Route Groups.
+Currently there are no authentication middleware built into ```Themosis``` however with ```illuminate/routing``` built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
 
-WPKit Auth comes with three types of Auth Middleware that integrate directly with Wordpress to authenticate users:
+```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with Wordpress to authenticate users:
 
 * Basic Authentication: auth.basic
 * Form Authentication: auth.form
@@ -14,7 +14,7 @@ WPKit Auth comes with three types of Auth Middleware that integrate directly wit
 
 ## Installation
 
-If you're using Themosis, install via composer in the Themosis route folder, otherwise install in your theme folder:
+If you're using ```Themosis```, install via ```Composer``` in the root of your ```Themosis``` installation, otherwise install in your ```Composer``` driven theme folder:
 
 ```php
 composer require "wp-kit/auth"
@@ -40,7 +40,7 @@ return [
 
 ### Add Config File
 
-> **Note:** This will be changing to a traditional config file similar to that found in Laravel once the UserProvider Guard has been built
+> **Note:** This will be changing to a traditional config file similar to that found in Laravel once the ```UserProvider``` Guard has been built
 
 The recommended method of installing config files for WPKit Components is via ```wp-kit/vendor-publish``` command.
 
@@ -58,13 +58,13 @@ Alternatively, you can place the [config file(s)](config) in your ```theme/resou
 
 ### Allowing Headers
 
-If using BasicAuth middleware, make sure you add the following line to your ```.htacess``` file to allow Authorization headers:
+If using ```BasicAuth``` middleware, make sure you add the following line to your ```.htacess``` file to allow Authorization headers:
 
 ```RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]```
 
 ## Usage
 
-You can activate middleware on the route group or route itself:
+You can activate ```Middleware``` on the route group or route itself:
 
 ### Middleware on Group
 
@@ -123,4 +123,4 @@ PHP 5.6+
 
 ## License
 
-WPKit Auth is open-sourced software licensed under the MIT License.
+wp-kit/auth is open-sourced software licensed under the MIT License.
