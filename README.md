@@ -1,20 +1,20 @@
 # wp-kit/auth
 
-This is a Themosis PHP Component that handles authentication.
+This is a [```Themosis```](http://framework.themosis.com/) PHP Component that handles authentication.
 
-Currently there are no authentication middleware built into ```Themosis``` however with ```illuminate/routing``` built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
+Currently there are no authentication middleware built into ```Themosis``` however with [```illuminate/routing```](https://github.com/illuminate/routing) built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
 
 ```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with Wordpress to authenticate users:
 
-* Basic Authentication: auth.basic
-* Form Authentication: auth.form
-* Token Authentication: auth.token
+* Basic Authentication: [auth.basic](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php)
+* Form Authentication: [auth.form](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/FormAuth.php)
+* Token Authentication: [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
 
 **This will be changing soon, Form and Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that Illuminate Authenticate and TokenGuard can be used.**
 
 ## Installation
 
-Install via ```Composer``` in the root of your ```Themosis``` installation:
+Install via [```Composer```](https://getcomposer.org/) in the root of your ```Themosis``` installation:
 
 ```php
 composer require "wp-kit/auth"
@@ -58,7 +58,7 @@ Alternatively, you can place the [config file(s)](config) in your ```theme/resou
 
 ### Allowing Headers
 
-If using ```BasicAuth``` middleware, make sure you add the following line to your ```.htaccess``` file to allow Authorization headers:
+If using [```BasicAuth```](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php) middleware, make sure you add the following line to your ```.htaccess``` file to allow Authorization headers:
 
 ```RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]```
 
