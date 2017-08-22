@@ -10,7 +10,7 @@ Currently there are no authentication middleware built into ```Themosis``` howev
 * Form Authentication: [auth.form](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/FormAuth.php)
 * Token Authentication: [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
 
-**This will be changing soon, Form and Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that Illuminate Authenticate and TokenGuard can be used.**
+**This will be changing soon, Form and Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that [Illuminate\Auth\Middleware\Authenticate](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php) and [Illuminate\Auth\TokenGuard](https://github.com/illuminate/auth/blob/master/TokenGuard.php) can be used.**
 
 ## Installation
 
