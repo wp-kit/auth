@@ -86,7 +86,6 @@ class RoutingService extends ServiceProvider
     {
         Route::group([
 	        'middleware' => [
-		        'web.session',
 	        	'auth.basic',
 				//'auth.form',
 				//'auth.token'
