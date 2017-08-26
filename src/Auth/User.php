@@ -2,10 +2,10 @@
 	
 namespace WPKit\Auth;
 
-use Themosis\User\User as BaseUser;
+use WP_User;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-class User extends BaseUser implements Authenticatable {
+class User extends WP_User implements Authenticatable {
 	
 	/**
      * Get the name of the unique identifier for the user.
