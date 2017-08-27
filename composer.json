@@ -1,6 +1,6 @@
 {
 	"name": "wp-kit/auth",
-	"description": "A Themosis PHP Component that handles Authentication",
+	"description": "A wp-kit component that handles authentication",
 	"keywords": ["wordpress", "themosis", "oop", "authentication"],
 	"homepage" : "https://github.com/wp-kit/auth",
 	"license": "MIT",
