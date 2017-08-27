@@ -16,6 +16,7 @@
         "php": ">=5.6.4",
         "illuminate/auth": "5.*",
 		"wp-kit/config": "dev-master",
+		"wp-kit/routing": "dev-master",
         "wp-kit/hashing": "dev-master",
         "illuminate/cookie": "5.*",
 	"wp-kit/utils": "dev-master"
