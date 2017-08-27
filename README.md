@@ -63,7 +63,7 @@ Alternatively, you can place the [config file(s)](config) in your ```theme/resou
 
 ### Allowing Headers
 
-If using [```BasicAuth```](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php) middleware, make sure you add the following line to your ```.htaccess``` file to allow Authorization headers:
+If using [```BasicAuth```](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php) middleware, make sure you add the following line to your ```.htaccess``` file to allow ```Authorization``` headers:
 
 ```RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]```
 
