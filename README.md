@@ -1,8 +1,8 @@
 # wp-kit/auth
 
-This is a [```Themosis```](http://framework.themosis.com/) PHP Component that handles authentication.
+This is a wp-kit component that handles authentication.
 
-Currently there are no authentication middleware built into ```Themosis``` however with [```illuminate/routing```](https://github.com/illuminate/routing) built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
+```wp-kit/auth``` was built to work with [```Themosis```](http://framework.themosis.com/) as currently there are no authentication middlewares built into ```Themosis``` however with [```illuminate/routing```](https://github.com/illuminate/routing) built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
 
 ```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with Wordpress to authenticate users:
 
@@ -22,19 +22,19 @@ composer require "wp-kit/auth"
 
 ## Setup
 
-### Add Service Provider
+### Add Service Provider(s)
 
 Just register the service provider and facade in the providers config and theme config:
 
 ```php
-//inside themosis-theme/resources/config/providers.config.php
+//inside theme/resources/config/providers.config.php
 
 return [
     //
     WPKit\Config\ConfigServiceProvider::class, // we need this too
     WPKit\Hashing\HashingServiceProvider::class, // we need this too
     Illuminate\Cookie\CookieServiceProvider::class, // we need this too
-    WPKit\Auth\AuthServiceProvider::class,
+    Illuminate\Auth\AuthServiceProvider::class,
     //
 ];
 ```
@@ -43,7 +43,7 @@ return [
 
 > **Note:** This will be changing to a traditional config file similar to that found in Laravel once the ```UserProvider``` Guard has been built
 
-The recommended method of installing config files for WPKit Components is via ```wp-kit/vendor-publish``` command.
+The recommended method of installing config files for wp-kit components is via ```wp-kit/vendor-publish``` command.
 
 First, [install WP CLI](http://wp-cli.org/), and then install the package via:
 
@@ -105,7 +105,6 @@ class RoutingService extends ServiceProvider
 
 Route::get('home', function(Input $request)
 {
-
     return view('welcome');
     
 })->middleware('auth.token');
