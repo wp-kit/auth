@@ -1,7 +1,7 @@
 {
 	"name": "wp-kit/auth",
 	"description": "A wp-kit component that handles authentication",
-	"keywords": ["wordpress", "themosis", "oop", "authentication"],
+	"keywords": ["wordpress", "themosis", "oop", "wp-kit", "authentication", "auth"],
 	"homepage" : "https://github.com/wp-kit/auth",
 	"license": "MIT",
 	"authors": [
