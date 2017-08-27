@@ -4,7 +4,7 @@ This is a wp-kit component that handles authentication.
 
 ```wp-kit/auth``` was built to work with [```Themosis```](http://framework.themosis.com/) as currently there are no authentication middlewares built into ```Themosis``` however with [```illuminate/routing```](https://github.com/illuminate/routing) built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
 
-```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with Wordpress to authenticate users:
+```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with WordPress to authenticate users:
 
 * Basic Authentication: [auth.basic](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php)
 * Form Authentication: [auth.form](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/FormAuth.php)
