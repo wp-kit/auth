@@ -35,7 +35,7 @@ return [
     WPKit\Hashing\HashingServiceProvider::class, // we need this too
     Illuminate\Cookie\CookieServiceProvider::class, // we need this too
     Illuminate\Auth\AuthServiceProvider::class, // we need this too
-    'WPKit\Auth\AuthServiceProvider::class'
+    WPKit\Auth\AuthServiceProvider::class
     //
 ];
 ```
