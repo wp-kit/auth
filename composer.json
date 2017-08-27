@@ -19,6 +19,7 @@
 		"wp-kit/routing": "dev-master",
         "wp-kit/hashing": "dev-master",
         "illuminate/cookie": "5.*",
+		"illuminate/session": "5.*",
 	"wp-kit/utils": "dev-master"
     },
 	"type": "library",
