@@ -15,24 +15,17 @@
 	"require": {
         "php": ">=5.6.4",
         "illuminate/auth": "5.*",
-		"wp-kit/config": "dev-master",
-		"wp-kit/routing": "dev-master",
-        "wp-kit/hashing": "dev-master",
+		"wp-kit/config": "2.*",
+		"wp-kit/routing": "2.*",
+        "wp-kit/hashing": "2.*",
         "illuminate/cookie": "5.*",
 		"illuminate/session": "5.*",
-	"wp-kit/utils": "dev-master"
+	"wp-kit/utils": "2.*"
     },
 	"type": "library",
 	"autoload": {
         "psr-4": {
             "WPKit\\Auth\\": "src/Auth" 
         }
-    },
-    "config": {
-		"preferred-install": "dist"
-	},
-	"repositories": [
-	],
-	"scripts": {
-	}
+    }
 }
