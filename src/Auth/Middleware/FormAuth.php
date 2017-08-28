@@ -3,11 +3,15 @@
     namespace WPKit\Auth\Middleware;
     
     use Closure;
-    use Themosis\Foundation\Request;
-	
+    use Illuminate\Http\Request;
 
 	class FormAuth {
 	    
+	    /**
+	     * The settings of the middleware
+	     *
+	     * @var array
+	     */
 	    protected static $settings = array();
 	    
 	    /**
@@ -47,6 +51,12 @@
 	        
 	    }
     	
+    	/**
+	     * Merge settings into stored settings
+	     *
+	     * @param array $settings
+	     * @return array
+		 */
     	public static function mergeSettings($settings = array()) {
 	    	
 	    	return static::$settings = array_merge_recursive(array(
@@ -59,6 +69,11 @@
 
 		}
 		
+		/**
+	     * Check if current route is allowed
+	     *
+	     * @return boolean
+		 */
 		public function isAllowed() {
 			
 			$settings = static::$settings;
@@ -113,6 +128,14 @@
 	    	
     	}
     	
+    	/**
+	     * Get login url, check if masked
+	     *
+	     * @param string $login_url
+	     * @param string $redirect
+	     * @param boolean $force_reauth
+	     * @return string
+		 */
     	public function getLoginUrl($login_url, $redirect, $force_reauth) {
 	    	
 	    	$settings = static::$settings;
@@ -137,6 +160,11 @@
     		
 		}
         
+        /**
+	     * Get login redirect
+	     *
+	     * @return string
+		 */
         public function loginRedirect() {
 	        
 	        $settings = static::$settings;
@@ -147,6 +175,11 @@
 			
 		}
         
+        /**
+	     * Mask login, redirect user to custom login screen
+	     *
+	     * @return void
+		 */
         public function maskLogin() {
 	        
 	        $settings = static::$settings;

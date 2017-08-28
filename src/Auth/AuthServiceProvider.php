@@ -10,7 +10,12 @@
 	use WPKit\Auth\Middleware\BasicAuth;
 	
 	class AuthServiceProvider extends ServiceProvider {
-
+		
+		/**
+	     * Register the service provider.
+	     *
+	     * @return void
+	     */
 		public function register() {
 
 			Route::aliasMiddleware('auth.basic', BasicAuth::class);

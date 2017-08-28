@@ -3,15 +3,25 @@
     namespace WPKit\Auth\Middleware;
     
     use Closure;
-	use Themosis\Foundation\Request;
+	use Illuminate\Http\Request;
 	use Illuminate\Http\JsonResponse;
-	use Themosis\Facades\Route;
-	use Themosis\Facades\Input;
+	use Illuminate\Support\Facades\Route;
+	use Illuminate\Support\Facades\Input;
 
 	class TokenAuth {
 	    
+	    /**
+	     * The settings of the middleware
+	     *
+	     * @var array
+	     */
 	    protected static $settings = array();
 	    
+	    /**
+	     * Add routes for issue token
+	     *
+	     * @return void
+	     */
 	    public static function routes() {
 		    
 		    Route::post( '/token', static::class . '@issueToken' );
@@ -21,7 +31,7 @@
 	    /**
 	     * Handle an incoming request.
 	     *
-	     * @param  \Themosis\Facades\Input  $request
+	     * @param  \Illuminate\Http\Request  $request
 	     * @param  \Closure  $next
 	     * @param  string|null  $guard
 	     * @return mixed
@@ -77,6 +87,12 @@
 	        
 	    }
     	
+    	/**
+	     * Merge settings into stored settings
+	     *
+	     * @param array $settings
+	     * @return array
+		 */
     	public static function mergeSettings( $settings = array() ) {
 	    	
 	    	return static::$settings = array_merge_recursive(array(
@@ -90,6 +106,11 @@
 
 		}
 		
+		/**
+	     * Check if current route is allowed
+	     *
+	     * @return boolean
+		 */
 		public function isAllowed() {
 			
 			$settings = static::$settings;
@@ -136,6 +157,12 @@
 	    	
     	}
     	
+    	/**
+	     * Issue a token to the client
+	     *
+	     * @param \Illuminate\Http\Request $request
+	     * @return string
+		 */
     	public static function issueToken(Input $request) {
 	    	
 	    	$settings = static::mergeSettings(app('config.factory')->get('auth.token'));
@@ -196,6 +223,13 @@
 			
 		}
 		
+		/**
+	     * Create token for the client
+	     *
+	     * @param string $token
+	     * @param \WP_User $user
+	     * @return array
+		 */
 		public static function respondToAccessTokenRequest( $token, \WP_User $user ) {
 			
 			return array(
