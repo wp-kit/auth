@@ -12,6 +12,9 @@
 			"role" : "Developers"
 		}
 	],
+	"config": {
+		"preferred-install": "dist"
+	},
 	"require": {
         "php": ">=5.6.4",
         "illuminate/auth": "5.*",
