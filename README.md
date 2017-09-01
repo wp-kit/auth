@@ -114,6 +114,22 @@ Route::get('home', function(Input $request)
 
 Please install and study the default [config file](config/auth.config.php) as described above to learn how to use this component.
 
+## Get Involved
+
+To learn more about how to use ```wp-kit``` check out the docs:
+
+[View the Docs](https://github.com/wp-kit/theme/tree/docs/README.md)
+
+Any help is appreciated. The project is open-source and we encourage you to participate. You can contribute to the project in multiple ways by:
+
+- Reporting a bug issue
+- Suggesting features
+- Sending a pull request with code fix or feature
+- Following the project on [GitHub](https://github.com/wp-kit)
+- Sharing the project around your community
+
+For details about contributing to the framework, please check the [contribution guide](https://github.com/wp-kit/theme/tree/docs/Contributing.md).
+
 ## Requirements
 
 Wordpress 4+
