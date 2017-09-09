@@ -32,7 +32,7 @@ Just register the service provider and facade in the providers config and theme 
 return [
     //
     WPKit\Config\ConfigServiceProvider::class, // we need this too
-    WPKit\Routing\RoutingServiceProvider::class, // we need this too
+    WPKit\Kernel\KernelServiceProvider::class, // we need this too
     WPKit\Hashing\HashingServiceProvider::class, // we need this too
     Illuminate\Cookie\CookieServiceProvider::class, // we need this too
     Illuminate\Auth\AuthServiceProvider::class, // we need this too
