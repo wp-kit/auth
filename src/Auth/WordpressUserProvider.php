@@ -84,8 +84,13 @@ class WordpressUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials)
     {
+	    if (filter_var($credentials['email'], FILTER_VALIDATE_EMAIL)) { //Invalid Email
+		$user = get_user_by('email', $credentials['email']);
+	    } else {
+	    	$user = get_user_by('login', $credentials['email']);
+	    }
 	    $user = wp_signon([
-	    	'user_login' => $credentials['user_login'], 
+	    	'user_login' => $user->user_login, 
 	    	'user_password' => $credentials['password']
 	    ], $this->container['config.factory']->get('session')['secure'] ? true : false);
 	    if( $user && ! is_wp_error( $user ) ) {
