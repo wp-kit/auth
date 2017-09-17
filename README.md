@@ -6,7 +6,7 @@ This is a wp-kit component that handles authentication.
 
 ```wp-kit/auth``` achives compatibility with [```illuminate/auth```](https://github.com/illuminate/auth) by providing a UserProvider that integrates directly with WordPress to authenticate users.
 
-```wp-kit/auth``` comes aliased with three types of ```Middleware``` that integrate directly with WordPress to authenticate users:
+```wp-kit/auth``` comes aliased with three types of ```Middleware```:
 
 * Basic Authentication (Illuminate): [auth.basic](https://github.com/illuminate/auth/blob/master/Middleware/AuthenticateWithBasicAuth.php)
 * Token Authentication (Illuminate): [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
