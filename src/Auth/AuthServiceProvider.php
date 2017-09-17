@@ -20,7 +20,7 @@
 
 			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
 			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
-			Route::aliasMiddleware('auth' => Authenticate::class);
+			Route::aliasMiddleware('auth', Authenticate::class);
 			
 			$this->app->auth->provider('wordpress', function() {
 				
