@@ -9,8 +9,8 @@ This is a wp-kit component that handles authentication.
 ```wp-kit/auth``` comes aliased with three types of ```Middleware```:
 
 * Authentication (Illuminate): [auth](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php)
- * Token Guard (Illuminate): [auth:api](https://github.com/illuminate/auth/blob/master/TokenGuard.php)
- * Session Guard (Illuminate): [auth:web](https://github.com/illuminate/auth/blob/master/SessionGuard.php)
+	* Token Guard (Illuminate): [auth:api](https://github.com/illuminate/auth/blob/master/TokenGuard.php)
+	* Session Guard (Illuminate): [auth:web](https://github.com/illuminate/auth/blob/master/SessionGuard.php)
 * Basic Authentication (Illuminate): [auth.basic](https://github.com/illuminate/auth/blob/master/Middleware/AuthenticateWithBasicAuth.php)
 * WP Login Authentication (WP Kit): [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
 
