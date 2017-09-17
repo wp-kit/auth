@@ -4,10 +4,10 @@
 
 	use Illuminate\Support\ServiceProvider;
 	use Illuminate\Contracts\Auth\Factory;
+	use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 	use Themosis\Facades\Route;
 	use WPKit\Auth\Middleware\WpLoginAuth;
 	use WPKit\Auth\Middleware\TokenAuth;
-	use WPKit\Auth\Middleware\BasicAuth;
 	
 	class AuthServiceProvider extends ServiceProvider {
 		
@@ -18,7 +18,7 @@
 	     */
 		public function register() {
 
-			Route::aliasMiddleware('auth.basic', BasicAuth::class);
+			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
 			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
 			Route::aliasMiddleware('auth.token', TokenAuth::class);
 			
