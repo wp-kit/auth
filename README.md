@@ -7,10 +7,10 @@ This is a wp-kit component that handles authentication.
 ```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with WordPress to authenticate users:
 
 * Basic Authentication: [auth.basic](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php)
-* Form Authentication: [auth.form](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/FormAuth.php)
+* Form Authentication: [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
 * Token Authentication: [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
 
-**This will be changing soon, Form and Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that [Illuminate\Auth\Middleware\Authenticate](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php) and [Illuminate\Auth\TokenGuard](https://github.com/illuminate/auth/blob/master/TokenGuard.php) can be used.**
+**This will be changing soon, Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that [Illuminate\Auth\Middleware\Authenticate](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php) and [Illuminate\Auth\TokenGuard](https://github.com/illuminate/auth/blob/master/TokenGuard.php) can be used.**
 
 ## Installation
 
@@ -87,7 +87,7 @@ class RoutingService extends ServiceProvider
         Route::group([
 	        'middleware' => [
 	        	'auth.basic',
-				//'auth.form',
+				//'auth.wp_login',
 				//'auth.token'
 			],
             'namespace' => 'Theme\Controllers'
@@ -107,7 +107,7 @@ Route::get('home', function(Input $request)
 {
     return view('welcome');
     
-})->middleware('auth.token');
+})->middleware('auth.wp_login');
 ```
 
 ### Config
