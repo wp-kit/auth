@@ -10,7 +10,7 @@ This is a wp-kit component that handles authentication.
 * WP Login Authentication: [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
 * Token Authentication: [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
 
-**This will be changing soon, Token Middleware will be removed an replaced with a Wordpress UserProvider Guard so that [Illuminate\Auth\Middleware\Authenticate](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php) and [Illuminate\Auth\TokenGuard](https://github.com/illuminate/auth/blob/master/TokenGuard.php) can be used.**
+```wp-kit/auth``` comes with a [`AuthenticatesUsers`](blob/master/src/Auth/Traits/AuthenticatesUsers.php) Trait just like [`wp-kit/foundation`](https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php) so you can use this trait inside [Controllers](https://github.com/laravel/laravel/blob/master/app/Http/Controllers/Auth/LoginController.php) just like in Laravel.
 
 ## Installation
 
