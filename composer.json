@@ -20,6 +20,7 @@
         "illuminate/auth": "5.*",
 		"wp-kit/config": "2.*",
 		"wp-kit/kernel": "1.*",
+		"wp-kit/wp-login-auth": "1.*",
         "wp-kit/hashing": "2.*",
         "illuminate/cookie": "5.*",
 		"illuminate/session": "5.*",
