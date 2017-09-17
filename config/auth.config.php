@@ -38,7 +38,12 @@
 	        'web' => [
 	            'driver' => 'session',
 	            'provider' => 'users',
-	        ]
+	        ],
+		    
+		'api' => [
+		    'driver' => 'token',
+		    'provider' => 'users',
+		],
 	    ],
 	    
 	    /*
@@ -78,19 +83,5 @@
 		    'login_redirect' => home_url(),
 		    'mask_wp_login' => false
 	    ],
-	
-	    /*
-	    |--------------------------------------------------------------------------
-	    | Token Auth Settings
-	    |--------------------------------------------------------------------------
-	    |
-	    |
-	    */
-	
-	    'token' => [
-		    'username' => 'login',
-		    'limit' => 5,
-		    'allow' => []
-	    ]
 	
 	];
