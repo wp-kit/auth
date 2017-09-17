@@ -7,7 +7,6 @@
 	use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 	use Themosis\Facades\Route;
 	use WPKit\Auth\Middleware\WpLoginAuth;
-	use WPKit\Auth\Middleware\TokenAuth;
 	
 	class AuthServiceProvider extends ServiceProvider {
 		
@@ -20,7 +19,6 @@
 
 			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
 			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
-			Route::aliasMiddleware('auth.token', TokenAuth::class);
 			
 			$this->app->auth->provider('wordpress', function() {
 				
