@@ -1,6 +1,6 @@
 <?php
 
-namespace WPKit\Auth;
+namespace WPKit\Auth\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
