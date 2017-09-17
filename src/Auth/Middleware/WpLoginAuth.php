@@ -4,7 +4,7 @@
     
     use Closure;
     use Illuminate\Http\Request;
-	use WPKit\WpLoginAuth\WpLoginAuth;
+	use WPKit\WpLoginAuth\WpLoginAuth as Auth;
 
 	class WpLoginAuth {
 	    
@@ -21,7 +21,7 @@
 		    
 		    $settings = app('config.factory')->get('auth.wp_login');
 		    
-		    if( WpLoginAuth::boot($settings) ) {
+		    if( Auth::boot($settings) ) {
 			    
 			    return $next($request);
 			    
