@@ -71,7 +71,7 @@
 	    |
 	    */
 	
-	    'form' => [
+	    'wp_login' => [
 		    'allow' => [],
 		    'disallow' => [],
 		    'logout_redirect' => '/wp-login.php',
