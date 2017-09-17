@@ -4,13 +4,15 @@ This is a wp-kit component that handles authentication.
 
 ```wp-kit/auth``` was built to work with [```Themosis```](http://framework.themosis.com/) as currently there are no authentication middlewares built into ```Themosis``` however with [```illuminate/routing```](https://github.com/illuminate/routing) built into ```Themosis```, we are able to run ```Middleware``` on ```Routes``` and ```Route Groups```.
 
-```wp-kit/auth``` comes with three types of ```Middleware``` that integrate directly with WordPress to authenticate users:
+```wp-kit/auth``` achives compatibility with [```illuminate/auth```](https://github.com/illuminate/auth) by providing a UserProvider that integrates directly with WordPress to authenticate users.
 
-* Basic Authentication: [auth.basic](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/BasicAuth.php)
-* WP Login Authentication: [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
-* Token Authentication: [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
+```wp-kit/auth``` comes aliased with three types of ```Middleware``` that integrate directly with WordPress to authenticate users:
 
-```wp-kit/auth``` comes with a [`AuthenticatesUsers`](blob/master/src/Auth/Traits/AuthenticatesUsers.php) Trait just like [`wp-kit/foundation`](https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php) so you can use this trait inside [Controllers](https://github.com/laravel/laravel/blob/master/app/Http/Controllers/Auth/LoginController.php) just like in Laravel.
+* Basic Authentication (Illuminate): [auth.basic](https://github.com/illuminate/auth/blob/master/Middleware/AuthenticateWithBasicAuth.php)
+* Token Authentication (Illuminate): [auth.token](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/TokenAuth.php)
+* WP Login Authentication (WP Kit): [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
+
+```wp-kit/auth``` comes with a [`AuthenticatesUsers`](blob/master/src/Auth/Traits/AuthenticatesUsers.php) Trait just like [`wp-kit/foundation`](https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php) so you can use this trait inside [Controllers](https://github.com/laravel/laravel/blob/master/app/Http/Controllers/Auth/LoginController.php) just like in Laravel. 
 
 ## Installation
 
