@@ -5,7 +5,7 @@
 	use Illuminate\Support\ServiceProvider;
 	use Illuminate\Contracts\Auth\Factory;
 	use Themosis\Facades\Route;
-	use WPKit\Auth\Middleware\FormAuth;
+	use WPKit\Auth\Middleware\WpLoginAuth;
 	use WPKit\Auth\Middleware\TokenAuth;
 	use WPKit\Auth\Middleware\BasicAuth;
 	
@@ -19,7 +19,7 @@
 		public function register() {
 
 			Route::aliasMiddleware('auth.basic', BasicAuth::class);
-			Route::aliasMiddleware('auth.form', FormAuth::class);
+			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
 			Route::aliasMiddleware('auth.token', TokenAuth::class);
 			
 			$this->app->auth->provider('wordpress', function() {
