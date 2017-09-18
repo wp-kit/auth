@@ -31,6 +31,9 @@
 	"autoload": {
         "psr-4": {
             "WPKit\\Auth\\": "src/Auth" 
-        }
+        },
+		 "files": [
+            "src/helpers.php"
+        ]
     }
 }
