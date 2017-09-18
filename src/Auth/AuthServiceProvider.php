@@ -96,6 +96,12 @@
 				return $this->app['cache.store'];
 				
 			});
+			
+			$this->app->singleton(\Illuminate\Session\SessionManager::class, function() {
+				
+				return $this->app->session;
+				
+			});
 
 		}
 
