@@ -123,6 +123,7 @@ namespace Theme\Controllers;
 
 use Themosis\Route\BaseController;
 use WPKit\Auth\Traits\AuthenticatesUsers;
+use WPKit\Auth\Traits\ValidatesRequests;
 
 class LoginController extends Controller
 {
@@ -136,7 +137,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, ValidatesRequests;
     
     /**
      * Where to redirect users after login.
