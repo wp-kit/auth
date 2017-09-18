@@ -169,8 +169,11 @@ Route::get('logout', 'Example@logout');
 
 ***Make sure you add a login form view:***
 
-```html
+```php
 <-- Inside resources/view/auth/login.php -->
+<?php foreach( $errors as $field => $error ) : ?>
+	<strong>There was an error with field: <?php echo $field; ?></strong>
+<?php endforeach; ?>
 <form method="post">
 	<div>
 		<label>Username</label>
