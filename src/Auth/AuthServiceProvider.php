@@ -43,6 +43,14 @@
 			$this->publishes([
 				__DIR__.'/../../config/session.config.php' => config_path('session.config.php')
 			], 'config');
+			
+			$this->publishes([
+				__DIR__.'/../../config/cache.config.php' => config_path('cache.config.php')
+			], 'config');
+			
+			$this->publishes([
+				__DIR__.'/../../config/app.config.php' => config_path('app.config.php')
+			], 'config');
 		
 		}
 		
