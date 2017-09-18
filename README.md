@@ -113,6 +113,8 @@ Route::get('home', function(Input $request)
 
 ### Using Traits in Controllers
 
+The `AuthenticatesUsers` trait handles everything for logging the user in using a custom form.
+
 ```php
 namespace Theme\Controllers;
 
@@ -161,7 +163,26 @@ class LoginController extends Controller
 
 Route::get('account', 'Example@showLoginForm');
 Route::post('process-login', 'Example@login');
-Route::post('logout', 'Example@logout');
+Route::get('logout', 'Example@logout');
+```
+
+***Make sure you add a login form view:***
+
+```html
+<-- Inside resources/view/auth/login.php -->
+<form method="post" action="/process-login">
+	<div>
+		<label>Username</label>
+		<input type="text" name="email" placeholder="Username" />
+	</div>
+	<div>
+		<label>Password</label>
+		<input type="password" name="password" placeholder="Password" />
+	</div>
+	<div>
+		<input type="submit" value="Submit" />
+	</div>
+</form>
 ```
 
 ### Config
