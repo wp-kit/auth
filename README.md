@@ -86,9 +86,10 @@ class RoutingService extends ServiceProvider
     {
         Route::group([
 	        'middleware' => [
+			'start_session',
 	        	'auth.basic',
-				//'auth.wp_login',
-				//'auth.token'
+			//'auth.wp_login',
+			//'auth.token'
 			],
             'namespace' => 'Theme\Controllers'
         ], function () {
