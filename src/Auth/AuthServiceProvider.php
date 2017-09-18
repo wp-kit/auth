@@ -3,12 +3,8 @@
 	namespace WPKit\Auth;
 
 	use Illuminate\Support\ServiceProvider;
-	use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
-	use Illuminate\Auth\Middleware\Authenticate;
-	use Themosis\Facades\Route;
-	use WPKit\Auth\Middleware\WpLoginAuth;
-	use WPKit\Auth\Middleware\RedirectIfAuthenticated;
 	use Illuminate\Support\Facades\Facade;
+	use Themosis\Facades\Route;
 	
 	class AuthServiceProvider extends ServiceProvider {
 		
@@ -69,10 +65,11 @@
 			
 			Facade::setFacadeApplication($this->app);
 
-			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
-			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
-			Route::aliasMiddleware('auth', Authenticate::class);
-			Route::aliasMiddleware('guest', RedirectIfAuthenticated::class);
+			Route::aliasMiddleware('auth.basic', \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class);
+			Route::aliasMiddleware('auth.wp_login', \WPKit\Auth\Middleware\WpLoginAuth::class);
+			Route::aliasMiddleware('auth', \Illuminate\Auth\Middleware\Authenticate::class);
+			Route::aliasMiddleware('guest', \WPKit\Auth\Middleware\RedirectIfAuthenticated::class);
+			Route::aliasMiddleware('start_session', \Illuminate\Session\Middleware\StartSession::class);
 			
 			$this->app->instance('path.lang', resources_path('lang'));
 			
