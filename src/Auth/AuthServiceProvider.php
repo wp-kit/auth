@@ -23,6 +23,7 @@
 			\WPKit\Hashing\HashingServiceProvider::class, // we need this too
 			\Illuminate\Cookie\CookieServiceProvider::class, // we need this too
 			\Illuminate\Session\SessionServiceProvider::class, // we need this too
+			\Illuminate\Cache\CacheServiceProvider::class, // we need this too
 			\Illuminate\Filesystem\FilesystemServiceProvider::class, // we need this too
 			\Illuminate\Translation\TranslationServiceProvider::class, // we need this too
 			\Illuminate\Validation\ValidationServiceProvider::class, // we need this too
