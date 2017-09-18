@@ -5,6 +5,7 @@ namespace WPKit\Auth\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Validation\Factory;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
 
 trait ValidatesRequests
 {
