@@ -163,7 +163,7 @@ class LoginController extends Controller
 // an example in routes.php
 
 Route::get('account', 'Example@showLoginForm');
-Route::post('process-login', 'Example@login');
+Route::post('account', 'Example@login');
 Route::get('logout', 'Example@logout');
 ```
 
