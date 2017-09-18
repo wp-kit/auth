@@ -8,8 +8,22 @@
 	use Illuminate\Auth\Middleware\Authenticate;
 	use Themosis\Facades\Route;
 	use WPKit\Auth\Middleware\WpLoginAuth;
+	use Illuminate\Support\Facades\Facade;
 	
 	class AuthServiceProvider extends ServiceProvider {
+		
+		/**
+	     * Boot the service provider.
+	     *
+	     * @return void
+	     */
+		public function boot() {
+			
+			$this->publishes([
+				__DIR__.'/../../config/auth.config.php' => config_path('auth.config.php')
+			], 'config');
+		
+		}
 		
 		/**
 	     * Register the service provider.
@@ -17,6 +31,8 @@
 	     * @return void
 	     */
 		public function register() {
+			
+			Facade::setFacadeApplication($this->app);
 
 			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
 			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
