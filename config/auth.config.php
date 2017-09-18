@@ -78,5 +78,9 @@
 		    'login_redirect' => home_url(),
 		    'mask_wp_login' => false
 	    ],
+		
+		'guest' => [
+			'redirect' => home_url()
+		]
 	
 	];
