@@ -114,6 +114,48 @@ Route::get('home', function(Input $request)
 })->middleware('auth.wp_login');
 ```
 
+### Using Traits in Controllers
+
+```php
+namespace Theme\Controllers;
+
+use Themosis\Route\BaseController;
+use WPKit\Auth\Traits\AuthenticatesUsers;
+
+class LoginController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+    use AuthenticatesUsers;
+    
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+    
+}
+```
+
 ### Config
 
 Please install and study the default [config file](config/auth.config.php) as described above to learn how to use this component.
