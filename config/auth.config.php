@@ -74,7 +74,7 @@
 	    'wp_login' => [
 		    'allow' => [],
 		    'disallow' => [],
-		    'logout_redirect' => '/wp-login.php',
+		    'logout_redirect' => '/cms/wp-login.php',
 		    'login_redirect' => home_url(),
 		    'mask_wp_login' => false
 	    ],
