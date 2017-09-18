@@ -4,6 +4,7 @@
 
 	use Illuminate\Support\ServiceProvider;
 	use Illuminate\Contracts\Auth\Factory;
+	use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 	use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 	use Illuminate\Auth\Middleware\Authenticate;
 	use Themosis\Facades\Route;
@@ -77,6 +78,12 @@
 			$this->app->singleton(Factory::class, function() {
 				
 				return $this->app->auth;
+				
+			});
+			
+			$this->app->singleton(ValidationFactory::class, function() {
+				
+				return $this->app->validator;
 				
 			});
 
