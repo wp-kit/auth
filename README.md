@@ -12,6 +12,7 @@ This is a wp-kit component that handles authentication.
 	* Token Guard (Illuminate): [auth:api](https://github.com/illuminate/auth/blob/master/TokenGuard.php)
 	* Session Guard (Illuminate): [auth:web](https://github.com/illuminate/auth/blob/master/SessionGuard.php)
 * Basic Authentication (Illuminate): [auth.basic](https://github.com/illuminate/auth/blob/master/Middleware/AuthenticateWithBasicAuth.php)
+* Start Session (Illuminate): [start_session](https://github.com/illuminate/session/blob/master/Middleware/StartSession.php)
 * Guest Redirection (WP Kit): [guest](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/RedirectIfAuthenticated.php)
 * WP Login Authentication (WP Kit): [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
 
