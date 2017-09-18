@@ -37,13 +37,6 @@ Just register the service provider and facade in the providers config and theme 
 
 return [
     //
-    WPKit\Config\ConfigServiceProvider::class, // we need this too
-    WPKit\Kernel\KernelServiceProvider::class, // we need this too
-    WPKit\Hashing\HashingServiceProvider::class, // we need this too
-    Illuminate\Cookie\CookieServiceProvider::class, // we need this too
-    Illuminate\Auth\AuthServiceProvider::class, // we need this too
-    Illuminate\Filesystem\FilesystemServiceProvider::class, // specify the driver provider, if using BasicAuth
-    Illuminate\Session\SessionServiceProvider::class, // we need this too, if using BasicAuth
     WPKit\Auth\AuthServiceProvider::class
     //
 ];
@@ -157,6 +150,16 @@ class LoginController extends Controller
     }
     
 }
+```
+
+***Make sure you add routes:
+
+```php
+// an example in routes.php
+
+Route::get('account', 'Example@showLoginForm');
+Route::post('process-login', 'Example@login');
+Route::post('logout', 'Example@logout');
 ```
 
 ### Config
