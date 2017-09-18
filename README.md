@@ -90,10 +90,10 @@ class RoutingService extends ServiceProvider
 	        	'auth.basic',
 			//'auth.wp_login',
 			//'auth.token'
-			],
-            'namespace' => 'Theme\Controllers'
+		],
+            	'namespace' => 'Theme\Controllers'
         ], function () {
-            require themosis_path('theme.resources').'routes.php';
+        	require themosis_path('theme.resources').'routes.php';
         });
     }
 }
