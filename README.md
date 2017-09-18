@@ -6,13 +6,15 @@ This is a wp-kit component that handles authentication.
 
 ```wp-kit/auth``` achives compatibility with [```illuminate/auth```](https://github.com/illuminate/auth) by providing a UserProvider that integrates directly with WordPress to authenticate users.
 
-```wp-kit/auth``` comes aliased with three types of ```Middleware```:
+```wp-kit/auth``` comes aliased with four types of ```Middleware```:
 
 * Authentication (Illuminate): [auth](https://github.com/illuminate/auth/blob/master/Middleware/Authenticate.php)
 	* Token Guard (Illuminate): [auth:api](https://github.com/illuminate/auth/blob/master/TokenGuard.php)
 	* Session Guard (Illuminate): [auth:web](https://github.com/illuminate/auth/blob/master/SessionGuard.php)
 * Basic Authentication (Illuminate): [auth.basic](https://github.com/illuminate/auth/blob/master/Middleware/AuthenticateWithBasicAuth.php)
+* Guest Redirection (Illuminate): [guest](https://github.com/laravel/laravel/blob/master/app/Http/Middleware/RedirectIfAuthenticated.php)
 * WP Login Authentication (WP Kit): [auth.wp_login](https://github.com/wp-kit/auth/blob/master/src/Auth/Middleware/WpLoginAuth.php)
+
 
 ```wp-kit/auth``` comes with a [`AuthenticatesUsers`](blob/master/src/Auth/Traits/AuthenticatesUsers.php) Trait just like [`wp-kit/foundation`](https://github.com/laravel/framework/blob/5.5/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php) so you can use this trait inside [Controllers](https://github.com/laravel/laravel/blob/master/app/Http/Controllers/Auth/LoginController.php) so you can use traditional form authentication just like in Laravel. 
 
