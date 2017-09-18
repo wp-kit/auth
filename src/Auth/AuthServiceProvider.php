@@ -14,6 +14,22 @@
 	class AuthServiceProvider extends ServiceProvider {
 		
 		/**
+	     * Additional providers.
+	     *
+	     * @var array
+	     */
+		protected $providers = [
+			\WPKit\Config\ConfigServiceProvider::class, // we need this too
+			\WPKit\Kernel\KernelServiceProvider::class, // we need this too
+			\WPKit\Hashing\HashingServiceProvider::class, // we need this too
+			\Illuminate\Cookie\CookieServiceProvider::class, // we need this too
+			\Illuminate\Session\SessionServiceProvider::class, // we need this too
+			\Illuminate\Filesystem\FilesystemServiceProvider::class, // we need this too
+			\Illuminate\Translation\TranslationServiceProvider::class, // we need this too
+			\Illuminate\Validation\ValidationServiceProvider::class, // we need this too
+		];
+		
+		/**
 	     * Boot the service provider.
 	     *
 	     * @return void
@@ -36,6 +52,12 @@
 	     * @return void
 	     */
 		public function register() {
+			
+			foreach($this->providers as $provider) {
+				
+				$this->app->register($provider);
+				
+			}
 			
 			Facade::setFacadeApplication($this->app);
 
