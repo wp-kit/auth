@@ -163,6 +163,8 @@ trait AuthenticatesUsers
         $this->guard()->logout();
 
         $request->session()->invalidate();
+        
+        wp_logout();
 
         return redirect('/');
     }
