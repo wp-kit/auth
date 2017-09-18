@@ -8,6 +8,7 @@
 	use Illuminate\Auth\Middleware\Authenticate;
 	use Themosis\Facades\Route;
 	use WPKit\Auth\Middleware\WpLoginAuth;
+	use WPKit\Auth\Middleware\RedirectIfAuthenticated;
 	use Illuminate\Support\Facades\Facade;
 	
 	class AuthServiceProvider extends ServiceProvider {
@@ -37,6 +38,7 @@
 			Route::aliasMiddleware('auth.basic', AuthenticateWithBasicAuth::class);
 			Route::aliasMiddleware('auth.wp_login', WpLoginAuth::class);
 			Route::aliasMiddleware('auth', Authenticate::class);
+			Route::aliasMiddleware('guest', RedirectIfAuthenticated::class);
 			
 			$this->app->auth->provider('wordpress', function() {
 				
