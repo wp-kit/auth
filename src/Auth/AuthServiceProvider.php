@@ -44,6 +44,8 @@
 			Route::aliasMiddleware('auth', Authenticate::class);
 			Route::aliasMiddleware('guest', RedirectIfAuthenticated::class);
 			
+			$this->app->instance('path.lang', resources_path('lang'));
+			
 			$this->app->auth->provider('wordpress', function() {
 				
 				return new WordpressUserProvider($this->app, $this->app->hash);
