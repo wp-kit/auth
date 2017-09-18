@@ -171,7 +171,7 @@ Route::get('logout', 'Example@logout');
 
 ```html
 <-- Inside resources/view/auth/login.php -->
-<form method="post" action="/process-login">
+<form method="post">
 	<div>
 		<label>Username</label>
 		<input type="text" name="email" placeholder="Username" />
