@@ -152,7 +152,7 @@ class LoginController extends Controller
 }
 ```
 
-***Make sure you add routes:
+***Make sure you add routes:***
 
 ```php
 // an example in routes.php
