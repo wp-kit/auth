@@ -23,6 +23,10 @@
 			$this->publishes([
 				__DIR__.'/../../config/auth.config.php' => config_path('auth.config.php')
 			], 'config');
+			
+			$this->publishes([
+				__DIR__.'/../../config/session.config.php' => config_path('session.config.php')
+			], 'config');
 		
 		}
 		
